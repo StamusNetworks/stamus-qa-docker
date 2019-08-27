@@ -2,7 +2,6 @@ FROM debian:stretch
 env DEBIAN_FRONTEND noninteractive
 env HOSTNAME rules.apache-rules.com
 env CERT_CN *.apache-rules.com
-run echo 'Acquire::http { Proxy "http://172.17.0.1:3142"; };' > /etc/apt/apt.conf.d/00proxy
 run apt-get update -qy
 run apt-get upgrade -y
 run apt-get install -y apache2 easy-rsa wget
