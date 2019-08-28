@@ -15,5 +15,5 @@ run cd /etc/rules-ca && bash -c "source vars && ./clean-all && \
         yes $'\n' | head -n 4 ; sleep 5s ; echo y; echo y; sleep 5s) | ./build-key-server $HOSTNAME"
 run sed -e "s#SSLCertificateFile.*#SSLCertificateFile /etc/rules-ca/keys/$HOSTNAME.crt#" -e "s#SSLCertificateKeyFile.*#SSLCertificateKeyFile /etc/rules-ca/keys/$HOSTNAME.key#" -i /etc/apache2/sites-available/default-ssl.conf
 run cp /etc/rules-ca/keys/ca.crt /var/www/html/
-run cd  /var/www/html/ && wget https://rules.emergingthreats.net/open/suricata-2.0.1/emerging.rules.tar.gz
+add emerging.rules.tar.gz /var/www/html/
 cmd ["bash", "-c", "/etc/init.d/apache2 start && tail -f /var/log/apache2/access.log"]
