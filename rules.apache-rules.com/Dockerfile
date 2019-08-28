@@ -15,6 +15,6 @@ run cd /etc/rules-ca && bash -c "source vars && ./clean-all && \
         yes $'\n' | head -n 4 ; sleep 5s ; echo y; echo y; sleep 5s) | ./build-key-server $HOSTNAME"
 run sed -e "s#SSLCertificateFile.*#SSLCertificateFile /etc/rules-ca/keys/$HOSTNAME.crt#" -e "s#SSLCertificateKeyFile.*#SSLCertificateKeyFile /etc/rules-ca/keys/$HOSTNAME.key#" -i /etc/apache2/sites-available/default-ssl.conf
 run cp /etc/rules-ca/keys/ca.crt /var/www/html/
-add emerging.rules.tar.gz /var/www/html/emerging.rules.tar.gz
+copy emerging.rules.tar.gz /var/www/html/emerging.rules.tar.gz
 run chmod a+r /var/www/html/emerging.rules.tar.gz
 cmd ["bash", "-c", "/etc/init.d/apache2 start && tail -f /var/log/apache2/access.log"]
