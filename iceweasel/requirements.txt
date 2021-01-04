@@ -27,7 +27,7 @@ django-revproxy==0.9.15
 django-tables2==2.0.6
 django-webpack-loader==0.6.0
 djangorestframework==3.9.4
-ecdsa==0.13.2
+ecdsa==0.13.3
 elasticsearch==7.0.1
 elasticsearch-curator==3.5.1
 enum34==1.1.6
