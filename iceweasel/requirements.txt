@@ -39,7 +39,7 @@ gitdb2==2.0.5
 GitPython==2.1.11
 greenlet==0.4.15
 gunicorn==19.9.0
-httplib2==0.12.3
+httplib2==0.18.0
 idna==2.8
 idstools==0.6.3
 influxdb==5.2.2
