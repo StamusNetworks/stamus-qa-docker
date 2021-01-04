@@ -14,7 +14,7 @@ cffi==1.12.3
 chardet==3.0.4
 Cheetah==2.4.4
 Click==7.0
-cryptography==2.0.3
+cryptography==3.2
 Django==1.11.20
 django-auth-ldap==1.7.0
 django-bootstrap3==11.0.0
