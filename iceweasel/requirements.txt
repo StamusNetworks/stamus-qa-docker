@@ -51,7 +51,7 @@ Markdown==3.1.1
 MarkupSafe==1.1.1
 medusa==0.5.4
 paramiko==2.4.2
-psutil==5.6.2
+psutil==5.6.6
 psycopg2==2.8.2
 pyasn1==0.4.5
 pyasn1-modules==0.2.5
