@@ -15,7 +15,7 @@ chardet==3.0.4
 Cheetah==2.4.4
 Click==7.0
 cryptography==2.0.3
-Django==1.11.20
+Django==1.11.29
 django-auth-ldap==1.7.0
 django-bootstrap3==11.0.0
 django-celery==3.3.0
