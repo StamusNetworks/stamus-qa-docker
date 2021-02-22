@@ -13,7 +13,7 @@ run  apt-get install -y supervisor git sudo ssh \
         rabbitmq-server easy-rsa sshpass rsync suricata wget jq curl nginx \
         tigervnc-standalone-server x11-apps xterm postgresql-11 postgresql-client libpq-dev \
         build-essential python3-dev libffi-dev libldap2-dev libsasl2-dev libssl-dev virtualenv python3-virtualenv \
-        python2-dev chromium chromium-driver zlib1g-dev
+        python2-dev chromium chromium-driver zlib1g-dev xdotool
 
 run  mkdir /data /var/run/sshd
 run  useradd -m -d /home/admin -p sa1aY64JOY94w admin
