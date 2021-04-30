@@ -15,5 +15,5 @@ robotframework-seleniumlibrary==4.0.0a2
 robotframework-sshlibrary==2.1.2
 selenium==4.0.0a1
 six==1.12.0
-urllib3==1.25.2
+urllib3==1.25.8
 vnc2flv==20100207
