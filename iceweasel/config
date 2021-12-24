@@ -1,4 +1,0 @@
-Host *
-ProtocolKeepAlives 10
-ServerAliveInterval 10
-ServerAliveCountMax 1
