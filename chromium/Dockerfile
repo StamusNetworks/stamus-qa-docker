@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 env DEBIAN_FRONTEND noninteractive
 env FILEBEAT_DEB_URL https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.5.2-amd64.deb
 env FILEBEAT_RPM_URL https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.5.2-x86_64.rpm
