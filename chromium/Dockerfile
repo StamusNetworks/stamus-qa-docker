@@ -11,7 +11,7 @@ add  sources.list /etc/apt/sources.list
 run  apt-get update -qy
 run  apt-get install -y supervisor git sudo ssh \
         rabbitmq-server easy-rsa sshpass rsync suricata wget jq curl nginx \
-        tigervnc-standalone-server x11-apps xterm postgresql-11 postgresql-client libpq-dev \
+        tigervnc-standalone-server x11-apps xterm postgresql-13 postgresql-client libpq-dev \
         build-essential python3-dev libffi-dev libldap2-dev libsasl2-dev libssl-dev virtualenv python3-virtualenv \
         python2-dev chromium chromium-driver zlib1g-dev xdotool
 
@@ -64,15 +64,15 @@ run mkdir /root/.ssh
 run mkdir -p /etc/ansible
 
 # Postgresql installation
-run mkdir -p /var/run/postgresql/11-main.pg_stat_tmp/ && chown postgres:postgres /var/run/postgresql -R
+run mkdir -p /var/run/postgresql/13-main.pg_stat_tmp/ && chown postgres:postgres /var/run/postgresql -R
 user postgres
 run /etc/init.d/postgresql start && \
     psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'scient';" && \
     createdb -O docker scient && \
     /etc/init.d/postgresql stop
 user root
-run echo "host all  all    127.0.0.0/8  md5" >> /etc/postgresql/11/main/pg_hba.conf
-run sed -e "s/^log_line_prefix .*/log_line_prefix = '%t [%p]: [%l-1] '/" -i /etc/postgresql/11/main/postgresql.conf
+run echo "host all  all    127.0.0.0/8  md5" >> /etc/postgresql/13/main/pg_hba.conf
+run sed -e "s/^log_line_prefix .*/log_line_prefix = '%t [%p]: [%l-1] '/" -i /etc/postgresql/13/main/postgresql.conf
 run (echo 'log_min_duration_statement = 0' && \
     echo 'log_checkpoints = on' && \
     echo 'log_connections = on' && \
@@ -80,10 +80,10 @@ run (echo 'log_min_duration_statement = 0' && \
     echo 'log_lock_waits = on' && \
     echo 'log_temp_files = 0' && \
     echo 'log_autovacuum_min_duration = 0' && \
-    echo 'log_error_verbosity = default') >> /etc/postgresql/11/main/postgresql.conf
+    echo 'log_error_verbosity = default') >> /etc/postgresql/13/main/postgresql.conf
 
 # Install pgbadger
-env PGBADGER_VER 11.2
+env PGBADGER_VER 11.6
 run cd /root && wget https://github.com/darold/pgbadger/archive/v${PGBADGER_VER}.tar.gz
 run cd /root && tar xzf v${PGBADGER_VER}.tar.gz && mv pgbadger-${PGBADGER_VER} pgbadger && rm v${PGBADGER_VER}.tar.gz
 
