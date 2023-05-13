@@ -5,7 +5,7 @@ env FILEBEAT_RPM_URL https://artifacts.elastic.co/downloads/beats/filebeat/fileb
 env METRICBEAT_DEB_URL https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-5.5.2-amd64.deb
 env METRICBEAT_RPM_URL https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-5.5.2-x86_64.rpm
 
-run  echo 'APT::Default-Release "buster";' > /etc/apt/apt.conf.d/00apt_default_release
+run  echo 'APT::Default-Release "bullseye";' > /etc/apt/apt.conf.d/00apt_default_release
 add  sources.list /etc/apt/sources.list
 
 run  apt-get update -qy
