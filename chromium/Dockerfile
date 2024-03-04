@@ -10,10 +10,11 @@ add  sources.list /etc/apt/sources.list
 
 run  apt-get update -qy
 run  apt-get install -y supervisor git sudo ssh \
-        rabbitmq-server easy-rsa sshpass rsync suricata wget jq curl nginx \
+        rabbitmq-server easy-rsa sshpass rsync wget jq curl nginx \
         tigervnc-standalone-server x11-apps xterm postgresql-13 postgresql-client libpq-dev \
         build-essential python3-dev libffi-dev libldap2-dev libsasl2-dev libssl-dev virtualenv python3-virtualenv \
         python2-dev chromium chromium-driver zlib1g-dev xdotool
+run apt-get install -y -t bullseye-backports suricata
 
 run  mkdir /data /var/run/sshd
 run  useradd -m -d /home/admin -p sa1aY64JOY94w admin
