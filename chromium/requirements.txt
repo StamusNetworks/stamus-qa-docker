@@ -57,7 +57,7 @@ MarkupSafe==1.1.1
 medusa==0.5.4
 more-itertools==8.4.0
 msgpack==0.6.1
-paramiko==2.7.2
+paramiko==2.10.1
 pkg-resources==0.0.0
 prompt-toolkit==3.0.8
 psutil==5.7.3
