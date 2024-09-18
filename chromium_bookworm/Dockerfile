@@ -10,7 +10,7 @@ add  sources.list /etc/apt/sources.list
 
 run  apt-get update -qy
 run  apt-get install -y supervisor git sudo ssh \
-        rabbitmq-server easy-rsa sshpass rsync wget jq curl nginx \
+        rabbitmq-server sshpass rsync wget jq curl nginx \
         tigervnc-standalone-server x11-apps xterm postgresql-15 postgresql-client libpq-dev \
         build-essential python3-dev libffi-dev libldap2-dev libsasl2-dev libssl-dev virtualenv python3-virtualenv \
         python3-dev chromium chromium-driver zlib1g-dev xdotool
@@ -48,7 +48,7 @@ run cd /home/admin/packages/rpm && wget "$METRICBEAT_RPM_URL"
 # Install Scirius packages
 run virtualenv -p python3 /home/admin/venv
 add requirements.txt /home/admin/requirements.txt
-#run /home/admin/venv/bin/pip install -r /home/admin/requirements.txt --upgrade
+run /home/admin/venv/bin/pip install -r /home/admin/requirements.txt --upgrade
 run /home/admin/venv/bin/pip install coverage pylint pylint-django
 
 # Robotframework
@@ -92,10 +92,3 @@ run cd /root && tar xzf v${PGBADGER_VER}.tar.gz && mv pgbadger-${PGBADGER_VER} p
 add nginx.conf /etc/nginx/sites-enabled/default
 run touch /var/log/gunicorn-error.log /var/log/gunicorn-access.log && \
     chown admin:admin /var/log/gunicorn-error.log /var/log/gunicorn-access.log
-
-run make-cadir /etc/nginx/ca && \
-    cd /etc/nginx/ca && bash -c "./easyrsa init-pki && \
-        echo | ./easyrsa build-ca nopass && \
-        export EASYRSA_BATCH=1 && ./easyrsa build-server-full stamus nopass"
-run mkdir -p /etc/nginx/ssl/ && cp /etc/nginx/ca/pki/issued/stamus.crt /etc/nginx/ssl/manager.crt && \
-    cp /etc/nginx/ca/pki/private/stamus.key /etc/nginx/ssl/manager.key
