@@ -1,5 +1,5 @@
 amqp==2.6.1
-ansible==2.9.15
+ansible==4.2.0
 anyjson==0.3.3
 arrow==0.17.0
 async==0.6.2
