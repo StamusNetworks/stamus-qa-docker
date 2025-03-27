@@ -15,6 +15,7 @@ run  apt-get install -y supervisor git sudo ssh \
     build-essential python3-dev libffi-dev libldap2-dev libsasl2-dev libssl-dev virtualenv python3-virtualenv \
     python3-dev chromium chromium-driver zlib1g-dev xdotool
 run apt-get install -y -t bookworm-backports suricata
+RUN apt-get install -y easy-rsa
 
 run  mkdir /data /var/run/sshd
 run  useradd -m -d /home/admin -p sa1aY64JOY94w admin
